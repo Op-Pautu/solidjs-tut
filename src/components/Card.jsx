@@ -1,13 +1,12 @@
 const Card = () => {
   return (
-    <div>
+    <div class="bg-white p-4 text-center rounded-md shadow-md">
       <h2>Card Component</h2>
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quae
         nostrum! Delectus consequuntur quisquam temporibus officia aspernatur
-        repellat eaque, cum laboriosam accusantium amet doloribus voluptates
-        atque dolor vero nulla rerum?
       </p>
+      <button class="btn">Click me</button>
     </div>
   );
 };
