@@ -1,18 +1,35 @@
-import Card from "./components/Card";
 import banner from "./assets/banner.png";
-function App() {
+import { createSignal } from "solid-js";
+import { A } from "@solidjs/router";
+
+function App(props) {
+  const [darkTheme, setDarkTheme] = createSignal(false);
+  const toggleTheme = () => {
+    setDarkTheme(!darkTheme());
+  };
   return (
-    <div class="container m-auto">
-      <header>
-        <h1>Cool Merch Store</h1>
-      </header>
-      <img class="rounded-md" src={banner} alt="site banner" />
-      <div class="grid grid-cols-4 gap-10 my-4">
-        <Card />
-        <Card />
-        <Card />
+    <>
+      <div class="container m-auto">
+        <header
+          class="my-4 p-2 text-xl flex items-center gap-4"
+          classList={{ "bg-neutral-900 text-white": darkTheme() }}
+        >
+          <span
+            class="material-symbols-outlined cursor-pointer"
+            onClick={toggleTheme}
+          >
+            light_mode
+          </span>
+
+          <h1>Cool Merch Store</h1>
+
+          <A href="/">Home</A>
+          <A href="/cart">Cart</A>
+        </header>
+        <img class="rounded-md" src={banner} alt="site banner" />
+        {props.children}
       </div>
-    </div>
+    </>
   );
 }
 
